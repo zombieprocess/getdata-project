@@ -6,12 +6,7 @@ getdata-project: CODEBOOK
 | Data | Description |
 |------------:|:-----------|
 |"subjectID" | Unique ID number of the research subject. |
-| "activity" | The activity the subject was currently performing. Factor of "WALKING", 
-                                    "WALKING_UPSTAIRS",
-                                    "WALKING_DOWNSTAIRS",
-                                    "SITTING",
-                                    "STANDING",
-                                    "LAYING" |
+| "activity" | The activity the subject was currently performing. Factor of activities. |
 | "tBodyAcc-mean()-X" | |
 | "tBodyAcc-mean()-Y" | |
 | "tBodyAcc-mean()-Z"  | |
