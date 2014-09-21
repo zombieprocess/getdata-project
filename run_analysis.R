@@ -10,33 +10,31 @@ library(plyr)
 # 3. Uses descriptive activity names to name the activities in the data set
 # 4. Appropriately labels the data set with descriptive variable names. 
 # 5. From the data set in step 4, creates a second, independent tidy data set with the average 
-#    of each variable for each activity and each subject. (maybe HDF5?)
+#    of each variable for each activity and each subject.
 
 
-# container to prepare a new dataset extration
+# container function preparing a new dataset extration
 prep <- function() {
   # Create a data directory if it doesn't exist
   if (!file.exists("data")) {
     dir.create("data")
   }
 
-  temp <- tempfile()
-  download.file("http://www.newcl.org/data/zipfiles/a1.zip",temp)
-  data <- read.table(unz(temp, "a1.dat"))
-  unlink(temp)
-
-  # If the file is not downloaded, grab it
+  # If the file is not downloaded, grab it, and unzip it
   if(!file.exists("./data/UCI HAR Dataset")) {
+    tempFile <-tempfile()
     fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-    download.file(fileUrl, destfile = "./data/getdata-data-ss06pid.csv", method = "curl")
+    download.file(fileUrl, destfile = tempFile, method = "curl")
     dateDownloaded <- date()
+    unz(tempFile,"./data/UCI HAR Dataset")
+    unlink(tempFile)
     #list.files("./data")
   }
 }
 
-# tidy data set with the average 
-#    of each variable for each activity and each subject.
-# Also writes to an output file.
+# Primary driver, works with the two datasets test and train, merges them in a tidy way, 
+# then performs a summary analysis with tidy data producing the average of each variable 
+# for each activity and each subject.
 run_analysis <- function() {
   
   # Generate a merged data frame to work with
@@ -51,8 +49,14 @@ run_analysis <- function() {
 
 # Function to assist at writing output to a text file, just pass in the data
 write_analysis <- function(data) {
+  
+  # Create a data directory if it doesn't exist
+  if (!file.exists("data")) {
+    dir.create("data")
+  }
+  
   # Write data set as a txt file created with write.table() using row.name=FALSE, w/ tab seporators
-  write.table(data,file="data/analysis.txt",sep="\t",row.name=FALSE)
+  write.table(data,file="data/UCI-HAR-analysis.txt",sep="\t",row.name=FALSE)
 }
 
 # Merge data both sets of data. [test&train]
