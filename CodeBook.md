@@ -3,11 +3,17 @@ getdata-project: CODEBOOK
 
 ### For file: `data/HCI-HAR-analysis.txt`
 
-| Sepal.Length| Sepal.Width| Petal.Length|
-|------------:|-----------:|------------:|
-|          5.1|         3.5|          1.4|
-|          4.9|         3.0|          1.4|
-|          4.7|         3.2|          1.3|
-|          4.6|         3.1|          1.5|
-|          5.0|         3.6|          1.4|
-|          5.4|         3.9|          1.7|
+| Data | Description |
+|------------:|:-----------|
+|"subjectID" | Unique ID number of the research subject. |
+| "activity" | The activity the subject was currently performing. Factor of "WALKING", 
+                                    "WALKING_UPSTAIRS",
+                                    "WALKING_DOWNSTAIRS",
+                                    "SITTING",
+                                    "STANDING",
+                                    "LAYING" |
+| "tBodyAcc-mean()-X" | |
+| "tBodyAcc-mean()-Y" | |
+| "tBodyAcc-mean()-Z"  | |
+| ... | ... |
+| "fBodyBodyGyroJerkMag-std()" | |

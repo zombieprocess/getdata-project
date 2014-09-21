@@ -14,11 +14,11 @@ Quoting, nearly directly, this is the assignment --
 >    of each variable for each activity and each subject.
 
 The plan I set out with initiall before coding was -
- 1.) Get the data in a frame
+ 1. Get the data in a frame
   - Grab subject ID
   - Column bind the activity
   - Column bind mean() and std() data
- 2.) Tidy the data
+ 2. Tidy the data
   - Add colNames
   - Add Activity factor names
 
@@ -33,11 +33,15 @@ You need to load the `plyr` library before `run_analysis()` will operate correct
 In order of importance.
 
 | Function | Usage | Description/Purpose |
-|------------:|-----------:|-----------:|
+|------------:|:-----------|:-----------|
 | run_analysis()   | No arguments, returns a tidy data object.    | This is where you start. It is the Primary driver, works with the two datasets test and train, merges them in a tidy way, then performs a summary analysis with tidy data producing the average of each variable for each activity and each subject.       |
-| write_analysis(data) | Argument - pass in a data frame. | Function to assist at writing output to a text file, just pass in the data, writes file to `data/UCI-HAR-analysis.txt`, using tab seporators for easier reading. | 
+| write_analysis(data) | Argument - `data frame`. | Function to assist at writing output to a text file, just pass in the data, writes file to `data/UCI-HAR-analysis.txt`, using tab seporators for easier reading. | 
+| load_set(target) | Argument `name` where name is either 'test' or 'train'. Returns a dataframe. | # Pass a directory name and return a dataframe with the desired imported dataset, clean and tidy for use. |
+| merge_data() | No arguments. Returns merged data set. | # Merge data both sets of data `test` `train`, returning the clean tidy data frame. |
+| data_grep() | No arguments, returns a dataframe | # Builds an index for mean() and std() related variables from `features.txt`. Used `grep()` in R to create the index I need. Pretty awesome.  |
+ # Build an index for mean() and std() related variables in features.txt
 | prep()         | No arguments    | Attempts to download the zip data file, uncompresses using `unz()` into a `data` subdirectory in your current working directory. Assumes you have a working internet connection. |
 
 ### Data set summary
 
-
+Please see `CodeBook.md`
