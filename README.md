@@ -39,7 +39,7 @@ In order of importance.
 | load_set(target) | Argument `name` where name is either 'test' or 'train'. Returns a dataframe. | # Pass a directory name and return a dataframe with the desired imported dataset, clean and tidy for use. |
 | merge_data() | No arguments. Returns merged data set. | # Merge data both sets of data `test` `train`, returning the clean tidy data frame. |
 | data_grep() | No arguments, returns a dataframe | # Builds an index for mean() and std() related variables from `features.txt`. Used `grep()` in R to create the index I need. Pretty awesome.  |
- # Build an index for mean() and std() related variables in features.txt
+ # Build an index for mean() and std() related variables in features.txt |
 | prep()         | No arguments    | Attempts to download the zip data file, uncompresses using `unz()` into a `data` subdirectory in your current working directory. Assumes you have a working internet connection. |
 
 ### Data set summary
